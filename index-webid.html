@@ -1,0 +1,242 @@
+<html>
+<head>
+    <title>saver.web.id | Cloud Download Tool : Save your files directly to Dropbox</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="jumbotron.css" rel="stylesheet">
+
+
+<link href='http://fonts.googleapis.com/css?family=Cantata+One' rel='stylesheet' type='text/css'>
+<style type="text/css">
+.btn {
+	-moz-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #378de5) );
+	background:-moz-linear-gradient( center top, #79bbff 5%, #378de5 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5');
+	background-color:#79bbff;
+	-webkit-border-top-left-radius:10px;
+	-moz-border-radius-topleft:10px;
+	border-top-left-radius:10px;
+	-webkit-border-top-right-radius:10px;
+	-moz-border-radius-topright:10px;
+	border-top-right-radius:10px;
+	-webkit-border-bottom-right-radius:10px;
+	-moz-border-radius-bottomright:10px;
+	border-bottom-right-radius:10px;
+	-webkit-border-bottom-left-radius:10px;
+	-moz-border-radius-bottomleft:10px;
+	border-bottom-left-radius:10px;
+	text-indent:0;
+	border:1px solid #84bbf3;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	height:50px;
+	line-height:50px;
+	width:220px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #528ecc;
+}
+.btn:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #378de5), color-stop(1, #79bbff) );
+	background:-moz-linear-gradient( center top, #378de5 5%, #79bbff 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff');
+	background-color:#378de5;
+}.btn:active {
+	position:relative;
+	top:1px;
+}</style>
+
+<style type="text/css">
+hbig {
+font-size: 72px;
+color: #499DF5;
+font-weight: bold;
+margin-top: 0px;
+margin-bottom: 3px;
+}
+
+htitle{
+font-size: 32px;
+color: #000000;
+margin-top: 0px;
+margin-bottom: 3px;
+}
+
+</style>
+
+</head>
+<body style="background-color: #92baf8;background-image: url(bg.jpg);background-repeat: repeat-x;font-family: 'Cantata One', cursive;">
+
+    
+
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          
+          <ul class="nav navbar-nav">
+          <li><a href="index.html">saver.web.id</a></li>
+          <li><a href="http://how.todropbox.com/">How to</a></li>
+        </ul>
+        </div>
+        <div class="navbar-collapse collapse">
+          
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+<div  style="padding:0 20px;background-color: #000000;background-repeat: repeat-x;">
+<div class="row">
+<ul class="nav navbar-nav">
+          <li><a href="index.html">saver.web.id</a></li>
+          <li><a href="http://how.todropbox.com/">How to</a></li>
+        </ul>
+</div>
+</div>
+<center>
+<br>
+<img src="saver.png">
+
+<div style="width:70%;-webkit-border-radius: 20px;-moz-border-radius: 20px;border-radius: 20px;background-color:#C8D1F2;-webkit-box-shadow: #B3B3B3 4px 4px 4px;-moz-box-shadow: #B3B3B3 4px 4px 4px; box-shadow: #B3B3B3 4px 4px 4px;">
+<div style="width:80%;-webkit-border-radius: 20px;-moz-border-radius: 20px;border-radius: 20px;background-color:#C8D1F2;">
+<script type="text/javascript" src="https://www.dropbox.com/static/api/1/dropins.js" id="dropboxjs" data-app-key="z01wjecdm6plozl">
+</script>
+<script>
+function savetoDrop()
+{
+twitmsg="http://twitter.com/share?url=http://save.todropbox.com&text=Succesfully+download+web+files+directly+to+my+Dropbox+using+save.todropbox.com";
+
+document.getElementById('saving').innerHTML = '';
+document.getElementById('success').innerHTML = '';
+var link=document.getElementById("theurl").value;
+var saveas=document.getElementById("saveas").value;
+    if (saveas.length<3) {saveas = link.substring(link.lastIndexOf('/')+1);}
+var options = {
+    files: [
+        {'url': link, 'filename': saveas},
+    ],
+    success: function() {document.getElementById('saving').innerHTML = '';document.getElementById('success').innerHTML = '<hbig>Success!</hbig><br><i>You\'ve got your file...</i><b><a target="_blank" href="'+twitmsg+'">Tweet This</a></b><br><br>';show('again');},
+    progress: function(progress) {hide('form');document.getElementById('saving').innerHTML = '<br>Downloading... <br><hbig>'+(Math.round(progress*100))+'%<br><br></hbig>';},
+    cancel: function() {document.getElementById('saving').innerHTML = 'Canceled..<br>';show('again');},
+    error: function(errmsg) {document.getElementById('saving').innerHTML = 'Error..<br>'+errmsg;show('again');}
+};
+
+
+Dropbox.save(options);
+
+
+}
+
+function hide(id)
+{
+    var e = document.getElementById(id);
+    e.style.display = 'none';
+}
+
+function show(id)
+{
+    var e = document.getElementById(id);
+    e.style.display = 'block';
+}
+
+function toggle_visibility(id) {
+    var e = document.getElementById(id);
+    if (e.style.display == 'block') e.style.display = 'none';
+    else e.style.display = 'block';
+
+    hideAllBut(id);
+}
+
+function hideAllBut(id) {
+    var lists = document.querySelectorAll('.list');
+    for (var i = lists.length; i--; ) {
+        if (lists[i].id != id) {
+            lists[i].style.display = 'none';
+        }
+    }
+}
+</script>
+
+<center><br>
+<h3><label id="success"></label></h3><br>
+</center>
+
+<div id="form">
+<center>
+
+<div class="input-group input-group-lg">
+<span class="input-group-addon">Hyperlink/URL:</span>
+<input type="text" class="form-control" placeholder="http://"  name="name" id="theurl" width="80%"></div>
+</center>
+<p class="help-block">Example: <i>http://down.todropbox.com/GetStarted.pdf</i></p>
+<br>
+<center>
+
+<div class="input-group input-group-lg">
+<span class="input-group-addon">Save file As...</span>
+<input type="text" class="form-control" placeholder="Optional"  name="saveas" id="saveas" width="80%">
+</div>
+</center>
+<p class="help-block">Example: <i>Tutorial.pdf</i> (You can leave it blank).</p>
+
+
+<center>
+   <br>
+   <button class="btn btn-info btn-large" onclick="savetoDrop();"><img src="https://dl.dropboxusercontent.com/s/y5lftcvlcp0s7ow/savetodropbox-btn.png"></button><br><br>
+</center>
+<br>
+Do not have Dropbox account? <a href="https://db.tt/wlcDG1My" target="_blank">Register here</a> for free!
+</div>
+
+<center>
+<h3><label id="saving"></label></h3>
+<div id="again"><a href=# onclick="toggle_visibility('form');document.getElementById('success').innerHTML ='';getElementById('saving').innerHTML ='';hide('again');">Download another<br><br></a></div>
+<script>
+hide('again');
+</script>
+</center>
+
+
+</div>
+
+</div>
+<br>
+</center>
+<br>
+
+
+<div  style="padding:0 30px;background-color: #b8daf0;background-repeat: repeat-x;">
+      <div class="row">
+
+	  <div class="col-md-4">
+          <h2>Cloud Download</h2>
+          <p>Apa itu cloud download?</p>
+         </div>
+	  <div class="col-md-4">
+          <h2>Cloud Storage</h2>
+          <p>Apa itu cloud storage</p>
+         </div>
+	  <div class="col-md-4">
+          <htitle>Cara dowwnload</htitle>
+          <p>Cara menggunakan saver.web.id</p>
+         </div>
+		 
+		</div>
+</div>
+
+<br>
+<div><center>
+<a href="http://saver.web.id">saver.web.id</a><br>2014
+</center>
+</div>
+</html>

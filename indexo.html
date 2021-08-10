@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Download files directly to Dropbox</title>
+<link href="bootstrap.css" rel="stylesheet">
+<link href="jumbotron.css" rel="stylesheet">
+<style type="text/css">
+hbig {
+font-size: 72px;
+color: #499DF5;
+font-weight: bold;
+margin-top: 0px;
+margin-bottom: 3px;
+}
+</style>
+</head>
+<script type="text/javascript" src="https://www.dropbox.com/static/api/1/dropins.js" id="dropboxjs" data-app-key="z01wjecdm6plozl">
+</script>
+<script>
+eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--){d[e(c)]=k[c]||e(c)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('4 A(){6 c=0.2("z").r;6 7=0.2("7").r;j(7.m<3){7=c.B(c.C(\'/\')+1)}6 p={E:[{\'y\':c,\'F\':7},],w:4(){0.2(\'b\').a=\'<f><d>v!<d>\';q(\'l\')},h:4(h){0.2(\'b\').a=\'<f>x...<f><d> \'+(u.D(h*M))+\'%</d>\'},P:4(){0.2(\'b\').a=\'G..\'},O:4(n){0.2(\'b\').a=\'Q \'+n+\'<f>S N!\'}};s(\'l\');I.H(p)}4 s(5){6 e=0.2(5);e.8.9=\'k\'}4 q(5){6 e=0.2(5);j(e.8.9==\'t\')e.8.9=\'k\';K e.8.9=\'t\';o(5)}4 o(5){6 g=0.L(\'.J\');R(6 i=g.m;i--;){j(g[i].5!=5){g[i].8.9=\'k\'}}}',55,55,'document||getElementById||function|id|var|saveas|style|display|innerHTML|saving|link|hbig||br|lists|progress||if|none|form|length|errmsg|hideAllBut|options|toggle_visibility|value|hide|block|Math|Success|success|Downloading|url|theurl|savetoDrop|substring|lastIndexOf|round|files|filename|Canceled|save|Dropbox|list|else|querySelectorAll|100|again|error|cancel|Error|for|Try'.split('|'),0,{}))
+</script>
+
+<div id="form">
+<center><div class="input-group input-group-lg">
+<span class="input-group-addon">Hyperlink/URL:</span>
+<input type="text" class="form-control" placeholder="http://"  name="name" id="theurl"></div>
+</center>
+<p class="help-block">Example: <i>http://down.todropbox.com/GetStarted.pdf</i></p>
+<br>
+<center>
+
+<div class="input-group input-group-lg">
+<span class="input-group-addon">Save file As...</span>
+<input type="text" class="form-control" placeholder="Optional"  name="saveas" id="saveas">
+</div>
+</center>
+<p class="help-block">Example: <i>Tutorial.pdf</i> (You can leave it blank).</p>
+
+
+<center>
+   <br>
+   <button class="btn btn-info btn-large" onclick="savetoDrop();">Download file...</button><br>
+</center>
+
+</div>
+
+<center>
+<h3><label id="saving"></label></h3>
+</center>
+</html>
